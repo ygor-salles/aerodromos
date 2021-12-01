@@ -1,4 +1,10 @@
-trabalho-db2
+# trabalho-db2
+
+## Site
+
+- https://ajuda.decea.mil.br/base-de-conhecimento/api-redemet-o-que-e/
+
+## Script do banco de dados
 
 ```sql
 CREATE TABLE public.aerodromos (
