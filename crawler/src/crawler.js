@@ -27,7 +27,8 @@ const crawlMETAR = async (local) => {
     if(!data) return null
     return {
       ...data,
-      validade_inicial: new Date(data.validade_inicial)
+      validade_inicial: new Date(data.validade_inicial),
+      recebimento: new Date(data.recebimento)
     }
   } catch(e) {
     console.log(e)
@@ -42,7 +43,8 @@ const crawlTAF = async (local) => {
     if(!data) return null
     return {
       ...data,
-      validade_inicial: new Date(data.validade_inicial)
+      validade_inicial: new Date(data.validade_inicial),
+      recebimento: new Date(data.recebimento)
     }
   } catch(e) {
     console.log(e)

@@ -31,7 +31,7 @@ const connectToDb = () => {
 
 const insertAerodrome = async (aerodrome) => {
     try {
-        const response = await pool.query('INSERT INTO aerodromos(code, latitude, longitude, name) VALUES($1, $2, $3, $4)',
+        await pool.query('INSERT INTO aerodromos(code, latitude, longitude, name) VALUES($1, $2, $3, $4)',
                     [aerodrome.cod, aerodrome.latitude, aerodrome.longitude, aerodrome.nome])
         return true
     } catch(e) {
@@ -42,8 +42,8 @@ const insertAerodrome = async (aerodrome) => {
 
 const insertMETAR = async (metar) => {
     try {
-        const response = await pool.query('INSERT INTO metar(code_aerodromo, date, message) VALUES($1, $2, $3)',
-                    [metar.id_localidade, metar.validade_inicial, metar.mens])
+        await pool.query('INSERT INTO metar(code_aerodromo, validade_inicial, recebimento, message) VALUES($1, $2, $3, $4)',
+                    [metar.id_localidade, metar.validade_inicial, metar.recebimento, metar.mens])
         return true
     } catch(e) {
         console.log(e)
@@ -53,8 +53,8 @@ const insertMETAR = async (metar) => {
 
 const insertTAF = async (taf) => {
     try {
-        const response = await pool.query('INSERT INTO taf(code_aerodromo, date, message) VALUES($1, $2, $3)',
-                    [taf.id_localidade, taf.validade_inicial, taf.mens])
+        await pool.query('INSERT INTO taf(code_aerodromo, validade_inicial, recebimento, message) VALUES($1, $2, $3, $4)',
+                    [taf.id_localidade, taf.validade_inicial, taf.recebimento, taf.mens])
         return true
     } catch(e) {
         console.log(e)

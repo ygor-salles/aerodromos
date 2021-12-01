@@ -27,10 +27,11 @@ CREATE INDEX aerodromos_coordinates
 CREATE TABLE public.metar(
 	id SERIAL,
 	code_aerodromo character(4) COLLATE pg_catalog."default" NOT NULL,
-	date timestamp without time zone NOT NULL,
+	validade_inicial timestamp without time zone NOT NULL,
+	recebimento timestamp without time zone NOT NULL,
   	message text COLLATE pg_catalog."default" NOT NULL,
   	CONSTRAINT taf_pkey PRIMARY KEY (id),
-  	CONSTRAINT code_message_metar UNIQUE (code_aerodromo, date),
+  	CONSTRAINT code_message_metar UNIQUE (code_aerodromo, validade_inicial, recebimento),
   	CONSTRAINT code_aerodromo_metar FOREIGN KEY (code_aerodromo)
 		REFERENCES public.aerodromos (code) MATCH FULL
 		ON UPDATE CASCADE
@@ -40,10 +41,11 @@ CREATE TABLE public.metar(
 CREATE TABLE public.taf(
 	id SERIAL,
 	code_aerodromo character(4) COLLATE pg_catalog."default" NOT NULL,
-	date timestamp without time zone NOT NULL,
+	validade_inicial timestamp without time zone NOT NULL,
+	recebimento timestamp without time zone NOT NULL,
   	message text COLLATE pg_catalog."default" NOT NULL,
 	CONSTRAINT metar_pkey PRIMARY KEY (id),
-  	CONSTRAINT code_message_taf UNIQUE (code_aerodromo, date),
+  	CONSTRAINT code_message_taf UNIQUE (code_aerodromo, validade_inicial, recebimento),
   	CONSTRAINT code_aerodromo_taf FOREIGN KEY (code_aerodromo)
 		REFERENCES public.aerodromos (code) MATCH FULL
 		ON UPDATE CASCADE

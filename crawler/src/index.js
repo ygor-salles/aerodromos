@@ -5,9 +5,8 @@ const start = async () => {
   await pgConn.connectToDb()
 
   // Baixa e insere os aerodromos
-  const aerodromes = await crawler.crawlAerodromes()
-  for(let i=0; i < aerodromes.length; i++) {
-    const aerodrome = aerodromes[i]
+  const aerodromes = await crawler.crawlAerodromes();
+  for(let aerodrome of aerodromes) {
     await pgConn.insertAerodrome(aerodrome)
 
     // Busca e insere o METAR
