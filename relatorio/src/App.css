@@ -1,0 +1,49 @@
+.app {
+  background-color: #f0f0f0;
+  padding: 0;
+  margin: 0;
+}
+
+.wrapper {
+  width: 800px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding-top: 80px;
+}
+
+.aerodrome-search {
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 1.4em !important;
+  font-weight: 700 !important;
+}
+
+.open {
+  display: block !important;
+}
+
+.searchMap {
+  width: 100%;
+  height: 300px;
+  margin-bottom: 30px;
+}
+
+.searchNome {
+  margin-bottom: 30px;
+}
+
+.fieldBlock {
+  padding-bottom: 30px;
+}
+
+.sortField {
+  display: flex;
+  width: 50%;
+}
+
+.modal-90w {
+  width: auto;
+  max-width: 90vw;
+}
